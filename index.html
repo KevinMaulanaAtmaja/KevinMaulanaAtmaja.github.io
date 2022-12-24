@@ -143,26 +143,34 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <form>
+                        <div class="alert alert-success alert-dismissible fade show d-none" role="alert">
+                            <strong>Terimakasih!</strong> Pesan anda sudah kami terima.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <form name="amelia-contact-form">
                             <div class="mb-3">
-                                <label for="text" class="form-label">Nama Lengkap</label>
-                                <input type="email" class="form-control" id="name" aria-describedby="name">
+                                <label for="name" class="form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="name" aria-describedby="name" name="nama">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="email">
+                                <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
                             </div>
                             <div class="mb-3">
                                 <label for="no-wa" class="form-label">No WA</label>
-                                <input type="tel" class="form-control" id="no-wa" aria-describedby="no-wa">
+                                <input type="tel" class="form-control" id="no-wa" aria-describedby="no-wa" name="no-wa">
                             </div>
                             <div class="mb-3">
                                 <label for="pesan" class="form-label">Pesan</label>
-                                <textarea class="form-control" id="pesan" rows="3"></textarea>
+                                <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
                             </div>
                                 
-                                <button type="submit" class="btn btn-outline-primary">Submit</button>
-                        </form> 
+                                <button type="submit" class="btn btn-outline-primary btn-kirim">Submit</button>
+                                <button class="btn btn-outline-primary btn-loading d-none" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    Loading...
+                                </button>
+                            </form> 
                     </div>
                 </div>
             </div>
@@ -182,5 +190,32 @@
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
             crossorigin="anonymous"
         ></script>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwIrGOsCyTpB3kGURADDkxVOlcSj_pqLEdInSdj7syWRRP7BJrQ2e3Y0wtUahw8ApGB_Q/exec'
+            const form = document.forms['amelia-contact-form']
+            const btnKirim = document.querySelector('.btn-kirim');
+            const btnLoading = document.querySelector('.btn-loading');
+            const alert = document.querySelector('.alert');
+        
+            form.addEventListener('submit', e => {  
+                e.preventDefault()
+                //ketika tmbl submit di klik
+                //tampilkan tmbl loading, hilangkan tmbl kirim
+                btnLoading.classList.toggle('d-none');
+                btnKirim.classList.toggle('d-none');
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    //tampilkan tmbl kirim, hilangkan tmbl loading
+                    btnLoading.classList.toggle('d-none');
+                    btnKirim.classList.toggle('d-none');
+                    //tampilkan alert
+                    alert.classList.toggle('d-none');
+                    // reset form
+                    form.reset();
+                    console.log('Success!', response)
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+        </script>
     </body>
 </html>
