@@ -55,7 +55,7 @@
             <img src="img/projects/Profile.jpeg" title="Ohto Ai" alt="Ohto Ai" width="200" class=" rounded-circle img-thumbnail">
             <h1 class="display-4">Amelia</h1>
             <p class="lead"></p>
-            <tsvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,160L48,165.3C96,171,192,181,288,176C384,171,480,149,576,138.7C672,128,768,128,864,138.7C960,149,1056,171,1152,154.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></tsvg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,160L48,165.3C96,171,192,181,288,176C384,171,480,149,576,138.7C672,128,768,128,864,138.7C960,149,1056,171,1152,154.7C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
         </section>
         <!-- akhir jumbotron -->
 
@@ -131,6 +131,45 @@
                     </div>
                 </div>
             </div>
+
+            <section id="my-3d">
+                <div class="container">
+                    <div class="row text-center mb-3">
+                        <div class="col">
+                            <h2>My 3D SAGIRI</h2>
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-3">
+                                <div class="tiga-d-box">
+                                    <h3 class="tiga-d-name">
+                                        SAGIRI IZUMI - 01
+                                    </h3>
+                                    <img src="img/3d/01.png" alt="01-sagiri" class="tiga-d-img">
+                                    <a href="#" class="btn btn-light detail-btn">Show Details</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-3">
+                                <div class="tiga-d-box">
+                                    <h3 class="tiga-d-name">
+                                        SAGIRI IZUMI - 02
+                                    </h3>
+                                    <img src="img/3d/02.png" alt="01-sagiri" class="tiga-d-img">
+                                    <a href="#" class="btn btn-light detail-btn">Show Details</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-3">
+                                <div class="tiga-d-box">
+                                    <h3 class="tiga-d-name">
+                                        SAGIRI IZUMI - 03
+                                    </h3>
+                                    <img src="img/3d/03.png" alt="01-sagiri" class="tiga-d-img">
+                                    <a href="#" class="btn btn-light detail-btn">Show Details</a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </section>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,64L30,74.7C60,85,120,107,180,96C240,85,300,43,360,26.7C420,11,480,21,540,58.7C600,96,660,160,720,181.3C780,203,840,181,900,149.3C960,117,1020,75,1080,80C1140,85,1200,139,1260,133.3C1320,128,1380,64,1410,32L1440,0L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path></svg>
         </section>
         <!-- Akhir Projects  -->
@@ -311,6 +350,15 @@
                 })
                 .catch(error => console.error('Error!', error.message))
             })
+        </script>
+
+        <!-- tilt js -->
+        <script type="text/javascript" src="js/vanilla-tilt.js"></script>
+        <script type="text/javascript">
+            VanillaTilt.init(document.querySelectorAll(".tiga-d-box"), {
+                max: 25,
+                speed: 400
+            });
         </script>
     </body>
 </html>

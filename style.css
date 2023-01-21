@@ -28,3 +28,98 @@ section{
 #gallery .row > *{
     padding: 0;
 }
+
+/* My 3D section */
+.tiga-d-box{
+    position: relative;
+    background-color: #0D6EFD;
+    border-radius: 10px;
+    height: 500px;
+    transform-style: preserve-3d;
+}
+
+.tiga-d-box::before{
+    content: 'MY';
+    position: absolute;
+    color: white;
+    font-size: 6em;
+    font-weight: bold;
+    font-style: italic;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.tiga-d-box:hover::before{
+    opacity: 0.5;
+    /* z-index: 1; */
+}
+
+.tiga-d-box::after{
+    content: 'SAGIRI';
+    position: absolute;
+    color: white;
+    font-size: 4.3em;
+    font-weight: bold;
+    font-style: italic;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.tiga-d-box:hover::after{
+    opacity: 0.5;
+    /* z-index: 1; */
+}
+
+.tiga-d-name{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 2em;
+    opacity: 0;
+    transform: translate3d(0, 0, 50px);
+    transition: 0.5s;
+}
+
+.tiga-d-box:hover .tiga-d-name{
+    top: 25px;
+    opacity: 1;
+}
+
+.detail-btn{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0) translate3d(0, 0, 100px);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.tiga-d-box:hover .detail-btn{
+    opacity: 1;
+    bottom: 20px;
+    transform: translate3d(-50%, -55%, 100px);
+}
+
+.tiga-d-img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -55%, 80px);
+    max-width: 200px;
+    transition: 0.5s;
+    opacity: 0.7;
+}
+
+.tiga-d-box:hover .tiga-d-img{
+    transform: translate3d(-50%, -55%, 80px) scale(1.2);
+    opacity: 0.9;
+    /* z-index: 3; */
+}
